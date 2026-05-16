@@ -89,6 +89,9 @@ function CompaniesPage() {
               <stop offset="0%" stopColor="oklch(0.88 0.16 85 / 0.5)" />
               <stop offset="100%" stopColor="oklch(0.78 0.13 85 / 0)" />
             </radialGradient>
+            <clipPath id="logoCrop">
+              <rect x="-450" y="-500" width="900" height="750" />
+            </clipPath>
           </defs>
 
           {/* Energy lines from center to branches */}
@@ -112,6 +115,7 @@ function CompaniesPage() {
             y="-500"
             width="900"
             height="900"
+            clipPath="url(#logoCrop)"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
