@@ -49,8 +49,14 @@ function HierarchyPage() {
 
       <div className="relative z-10 mx-auto max-w-7xl h-[600px] glass rounded-3xl overflow-hidden">
         <TransformWrapper minScale={0.4} maxScale={2.5} initialScale={0.85} centerOnInit>
-          <TransformComponent wrapperStyle={{ width: "100%", height: "100%" }} contentStyle={{ width: "100%", height: "100%" }}>
-            <svg viewBox={`${-cols * spacing / 2 - 100} -100 ${cols * spacing + 200} 600`} width={cols * spacing + 200} height={600}>
+          <TransformComponent 
+            wrapperStyle={{ width: "100%", height: "100%" }} 
+            contentStyle={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}
+          >
+            <svg 
+              viewBox={`${-cols * spacing / 2 - 100} -100 ${cols * spacing + 200} 600`} 
+              style={{ width: "100%", height: "100%", maxHeight: "100%" }}
+            >
               {/* lines from CEO to reports */}
               {rest.map((_, i) => {
                 const x = (i - (cols - 1) / 2) * spacing;
