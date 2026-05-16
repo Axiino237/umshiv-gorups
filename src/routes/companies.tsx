@@ -153,6 +153,45 @@ function CompaniesPage() {
             transition={{ duration: 1.5, ease: "easeOut" }}
           />
 
+          {/* Brand Text below Tree */}
+          <motion.text
+            x="0"
+            y="120"
+            textAnchor="middle"
+            fill="var(--gold)"
+            fontSize="72"
+            fontWeight="900"
+            letterSpacing="0.2em"
+            initial={{ opacity: 0, y: 140 }}
+            animate={{ opacity: 1, y: 120 }}
+            transition={{ duration: 1.5, delay: 0.5 }}
+            className="select-none pointer-events-none uppercase"
+            style={{
+              fontFamily: "var(--font-display)",
+              filter: "drop-shadow(0 0 15px oklch(0.78 0.13 85 / 0.5))"
+            }}
+          >
+            UMSHIV
+          </motion.text>
+          <motion.text
+            x="0"
+            y="170"
+            textAnchor="middle"
+            fill="var(--gold)"
+            fontSize="18"
+            fontWeight="700"
+            letterSpacing="0.4em"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.6 }}
+            transition={{ duration: 1.5, delay: 0.8 }}
+            className="select-none pointer-events-none uppercase"
+            style={{
+              fontFamily: "var(--font-display)",
+            }}
+          >
+            GROUP OF COMPANIES
+          </motion.text>
+
           {/* company orbs */}
           {branches.map((b, i) => {
             const c = companies[i];
