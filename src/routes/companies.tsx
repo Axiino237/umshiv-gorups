@@ -67,7 +67,7 @@ function CompaniesPage() {
         </p>
       </div>
 
-      <div className="relative z-10 mx-auto max-w-[1400px] aspect-[1280/920] glass rounded-3xl overflow-hidden mx-4 mb-20 shadow-2xl border-2 border-gold/30">
+      <div className="relative z-10 mx-auto max-w-[calc(100%-2rem)] lg:max-w-[1200px] aspect-[1280/920] glass rounded-3xl overflow-hidden mb-20 shadow-2xl border-2 border-gold/30">
         <div className="absolute inset-0 pointer-events-none"
           style={{
             background:
@@ -78,7 +78,7 @@ function CompaniesPage() {
         <svg
           viewBox="-640 -560 1280 920"
           preserveAspectRatio="xMidYMid meet"
-          className="w-full h-full relative"
+          className="w-full h-full relative overflow-hidden"
         >
           <defs>
             <filter id="orbGlow" x="-50%" y="-50%" width="200%" height="200%">
@@ -228,7 +228,7 @@ function CompaniesPage() {
                   style={{ pointerEvents: "none" }}
                 >
                   <div className="w-full h-full flex items-center justify-center p-4">
-                    <p 
+                    <p
                       className="font-display font-black uppercase text-center transition-all duration-300"
                       style={{
                         fontSize: isHovered ? "18px" : "15px",
@@ -236,8 +236,8 @@ function CompaniesPage() {
                         opacity: isHovered ? 1 : 0.9,
                         letterSpacing: "1px",
                         lineHeight: "1.2",
-                        textShadow: isHovered 
-                          ? "0 0 10px rgba(255,255,255,0.5)" 
+                        textShadow: isHovered
+                          ? "0 0 10px rgba(255,255,255,0.5)"
                           : "0 1px 4px rgba(0,0,0,0.9)"
                       }}
                     >
