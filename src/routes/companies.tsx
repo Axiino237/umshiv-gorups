@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { SiteHeader } from "@/components/SiteHeader";
 import { FloatingLeaves } from "@/components/FloatingLeaves";
 import { companies, type Company } from "@/data/companies";
-import treeFinal from "@/assets/tree_exact.png";
+import logo from "@/assets/umshiv-logo.png";
 
 export const Route = createFileRoute("/companies")({ component: CompaniesPage });
 
@@ -68,11 +68,10 @@ function CompaniesPage() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-[1400px] aspect-[1280/920] glass rounded-3xl overflow-hidden mx-4 mb-20 shadow-2xl border-2 border-gold/30">
-        {/* moonlight glow */}
         <div className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse at 50% 20%, oklch(0.78 0.13 85 / 0.18), transparent 55%)",
+              "radial-gradient(ellipse at 50% 80%, oklch(0.45 0.11 145 / 0.15), transparent 70%), radial-gradient(ellipse at 50% 20%, oklch(0.78 0.13 85 / 0.12), transparent 60%)",
           }}
         />
 
@@ -92,13 +91,30 @@ function CompaniesPage() {
             </radialGradient>
           </defs>
 
-          <image
-            href={treeFinal}
-            x="-640"
-            y="-560"
-            width="1280"
-            height="920"
-            preserveAspectRatio="xMidYMid slice"
+          {/* Energy lines from root to branches */}
+          {branches.map((b, i) => (
+            <motion.path
+              key={`line-${b.id}`}
+              d={`M 0 280 Q ${b.tip.x / 2} ${b.tip.y + 150}, ${b.tip.x} ${b.tip.y}`}
+              stroke="url(#orbFill)"
+              strokeWidth="4"
+              fill="none"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 0.4 }}
+              transition={{ duration: 2, delay: i * 0.2 }}
+            />
+          ))}
+
+          {/* Root Logo */}
+          <motion.image
+            href={logo}
+            x="-230"
+            y="-100"
+            width="460"
+            height="460"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
           />
 
           {/* company orbs */}
@@ -154,25 +170,7 @@ function CompaniesPage() {
             );
           })}
 
-          {/* root label */}
-          <text
-            x="0"
-            y="335"
-            textAnchor="middle"
-            fill="var(--gold)"
-            fontSize="56"
-            fontWeight="900"
-            letterSpacing="24"
-            className="select-none pointer-events-none"
-            style={{
-              fontFamily: "var(--font-display)",
-              filter: "drop-shadow(0 0 20px oklch(0.78 0.13 85 / 0.7))",
-              stroke: "rgba(0,0,0,0.3)",
-              strokeWidth: "1"
-            }}
-          >
-            UMSHIV
-          </text>
+
 
         </svg>
 
