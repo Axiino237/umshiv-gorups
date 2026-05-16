@@ -43,11 +43,10 @@ export const companies: Company[] = [
     phone: "+91 7397349160",
     ceo: "Aravindhan R",
     team: [
-      { name: "Aravindhan R", role: "CEO" },
-      { name: "Vijay", role: "CTO" },
-      { name: "Sujitha", role: "Engineering Lead" },
-      { name: "Saran", role: "Design Lead" },
-      { name: "Aravindhan R", role: "AI Lead" },
+      { name: "Aravindhan R", role: "Founder & CEO" },
+      { name: "Vijay", role: "Co Founder" },
+      { name: "Sujitha", role: "CTO" },
+      { name: "Saran", role: "AI & Software Solutions" },
     ],
   },
   {
