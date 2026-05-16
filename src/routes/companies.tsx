@@ -142,19 +142,19 @@ function CompaniesPage() {
                 <circle
                   cx={x}
                   cy={y}
-                  r={isHovered ? 120 : 100}
+                  r={isHovered ? 130 : 115}
                   fill={isHovered ? "url(#orbFill)" : "rgba(255,255,255,0.05)"}
                   filter="url(#orbGlow)"
-                  stroke={isHovered ? "var(--gold)" : "rgba(255,215,0,0.2)"}
+                  stroke={isHovered ? "var(--gold)" : "rgba(255,215,0,0.3)"}
                   strokeWidth="2"
                   style={{ transition: "all 0.3s" }}
                 />
                 <text
                   x={x}
-                  y={y - ((c.name.split(" ").length - 1) * 7.5)}
+                  y={y}
                   textAnchor="middle"
                   fill={isHovered ? "white" : "var(--gold)"}
-                  fontSize={isHovered ? "14" : "12"}
+                  fontSize={isHovered ? "18" : "15"}
                   fontWeight="900"
                   opacity={isHovered ? 1 : 0.9}
                   style={{
@@ -163,11 +163,17 @@ function CompaniesPage() {
                     textTransform: "uppercase",
                     letterSpacing: "1px",
                     pointerEvents: "none",
-                    filter: isHovered ? "drop-shadow(0 0 8px rgba(255,255,255,0.4))" : "drop-shadow(0 1px 3px rgba(0,0,0,0.8))"
+                    filter: isHovered ? "drop-shadow(0 0 10px rgba(255,255,255,0.5))" : "drop-shadow(0 1px 4px rgba(0,0,0,0.9))"
                   }}
                 >
-                  {c.name.split(" ").map((w, j) => (
-                    <tspan key={j} x={x} dy={j === 0 ? "0" : "1.2em"}>{w}</tspan>
+                  {c.name.split(" ").map((w, j, arr) => (
+                    <tspan 
+                      key={j} 
+                      x={x} 
+                      dy={j === 0 ? `-${(arr.length - 1) * 0.6}em` : "1.2em"}
+                    >
+                      {w}
+                    </tspan>
                   ))}
                 </text>
               </g>
