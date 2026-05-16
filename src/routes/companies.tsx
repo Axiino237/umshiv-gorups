@@ -220,33 +220,31 @@ function CompaniesPage() {
                   strokeWidth="2"
                   style={{ transition: "all 0.3s" }}
                 />
-                <text
-                  x={x}
-                  y={y}
-                  textAnchor="middle"
-                  fill={isHovered ? "white" : "var(--gold)"}
-                  fontSize={isHovered ? "18" : "15"}
-                  fontWeight="900"
-                  opacity={isHovered ? 1 : 0.9}
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    transition: "all 0.3s",
-                    textTransform: "uppercase",
-                    letterSpacing: "1px",
-                    pointerEvents: "none",
-                    filter: isHovered ? "drop-shadow(0 0 10px rgba(255,255,255,0.5))" : "drop-shadow(0 1px 4px rgba(0,0,0,0.9))"
-                  }}
+                <foreignObject
+                  x={x - 100}
+                  y={y - 100}
+                  width="200"
+                  height="200"
+                  style={{ pointerEvents: "none" }}
                 >
-                  {c.name.split(" ").map((w, j, arr) => (
-                    <tspan
-                      key={j}
-                      x={x}
-                      dy={j === 0 ? `-${(arr.length - 1) * 0.6}em` : "1.2em"}
+                  <div className="w-full h-full flex items-center justify-center p-4">
+                    <p 
+                      className="font-display font-black uppercase text-center transition-all duration-300"
+                      style={{
+                        fontSize: isHovered ? "18px" : "15px",
+                        color: isHovered ? "white" : "var(--gold)",
+                        opacity: isHovered ? 1 : 0.9,
+                        letterSpacing: "1px",
+                        lineHeight: "1.2",
+                        textShadow: isHovered 
+                          ? "0 0 10px rgba(255,255,255,0.5)" 
+                          : "0 1px 4px rgba(0,0,0,0.9)"
+                      }}
                     >
-                      {w}
-                    </tspan>
-                  ))}
-                </text>
+                      {c.name}
+                    </p>
+                  </div>
+                </foreignObject>
               </g>
             );
           })}
