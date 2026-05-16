@@ -108,6 +108,37 @@ function CompaniesPage() {
             />
           ))}
 
+          {/* Sparkles (Stars & Fireflies) */}
+          {stars.map((s) => (
+            <motion.circle
+              key={`star-${s.id}`}
+              cx={s.sx}
+              cy={s.sy}
+              r={s.r}
+              fill="white"
+              initial={{ opacity: s.op }}
+              animate={{ opacity: [s.op, s.op * 0.2, s.op] }}
+              transition={{ duration: s.dur, repeat: Infinity, ease: "easeInOut" }}
+            />
+          ))}
+          {fireflies.map((f) => (
+            <motion.circle
+              key={`firefly-${f.id}`}
+              cx={f.fx}
+              cy={f.fy}
+              r={f.r}
+              fill="var(--gold)"
+              initial={{ opacity: 0.4 }}
+              animate={{ 
+                opacity: [0.4, 0.8, 0.4],
+                x: [0, Math.random() * 20 - 10, 0],
+                y: [0, Math.random() * 20 - 10, 0]
+              }}
+              transition={{ duration: f.dur, repeat: Infinity, ease: "easeInOut" }}
+              style={{ filter: "blur(1px)" }}
+            />
+          ))}
+
           {/* Center Logo */}
           <motion.image
             href={logo}
