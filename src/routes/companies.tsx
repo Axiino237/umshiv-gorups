@@ -90,7 +90,7 @@ function CompaniesPage() {
               <stop offset="100%" stopColor="oklch(0.78 0.13 85 / 0)" />
             </radialGradient>
             <clipPath id="logoCrop">
-              <rect x="-450" y="-500" width="900" height="500" />
+              <rect x="-450" y="-550" width="900" height="600" />
             </clipPath>
           </defs>
 
@@ -112,7 +112,7 @@ function CompaniesPage() {
           <motion.image
             href={logo}
             x="-450"
-            y="-500"
+            y="-450"
             width="900"
             height="900"
             clipPath="url(#logoCrop)"
