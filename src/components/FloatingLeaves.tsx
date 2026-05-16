@@ -5,11 +5,11 @@ export function FloatingLeaves({ count = 14 }: { count?: number }) {
     () =>
       Array.from({ length: count }).map((_, i) => ({
         id: i,
-        left: Math.random() * 100,
+        left: Math.random() * 90 + 5, // Keep away from edges
         delay: Math.random() * 10,
         duration: 12 + Math.random() * 14,
         size: 8 + Math.random() * 14,
-        tx: (Math.random() - 0.5) * 240,
+        tx: (Math.random() - 0.5) * 100, // Reduced horizontal drift
         gold: Math.random() > 0.6,
       })),
     [count],

@@ -9,12 +9,12 @@ export const Route = createFileRoute("/")({ component: Index });
 
 function Index() {
   return (
-    <div className="relative min-h-screen gradient-hero overflow-hidden">
+    <div className="relative min-h-screen gradient-hero overflow-x-hidden max-w-full">
       <SiteHeader />
       <FloatingLeaves />
 
       {/* HERO */}
-      <section className="relative z-10 mx-auto max-w-7xl px-6 pt-40 pb-24 grid md:grid-cols-2 gap-16 items-center">
+      <section className="relative z-10 mx-auto max-w-7xl px-6 pt-28 md:pt-40 pb-24 grid md:grid-cols-2 gap-16 items-center">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
@@ -22,24 +22,24 @@ function Index() {
         >
           <p className="text-gold tracking-[0.3em] text-xs uppercase mb-2">Founder: Vijay</p>
           <p className="text-gold tracking-[0.3em] text-xs uppercase mb-6 opacity-60">One Root · Five Branches</p>
-          <h1 className="font-display text-5xl md:text-7xl leading-[1.05] mb-6">
+          <h1 className="font-display text-4xl md:text-7xl leading-[1.05] mb-6">
             Growing <span className="text-gradient-gold italic">together</span>,
             <br /> rooted in trust.
           </h1>
-          <p className="text-muted-foreground text-lg max-w-lg mb-10">
+          <p className="text-muted-foreground text-base md:text-lg max-w-lg mb-10">
             UMSHIV is a family of companies cultivating agriculture, construction,
             energy, retail and technology — branches of a single living vision.
           </p>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-4">
             <Link
               to="/companies"
-              className="px-7 py-3 rounded-full gradient-gold text-gold-foreground font-medium shadow-gold hover:scale-[1.03] transition-transform"
+              className="px-6 md:px-7 py-3 rounded-full gradient-gold text-gold-foreground font-medium shadow-gold hover:scale-[1.03] transition-transform text-sm md:text-base"
             >
               Explore the Tree
             </Link>
             <Link
               to="/hierarchy"
-              className="px-7 py-3 rounded-full border border-gold/40 text-gold hover:bg-gold/10 transition-colors"
+              className="px-6 md:px-7 py-3 rounded-full border border-gold/40 text-gold hover:bg-gold/10 transition-colors text-sm md:text-base"
             >
               Org Hierarchy
             </Link>
@@ -56,9 +56,9 @@ function Index() {
           <motion.img
             src={logo}
             alt="UMSHIV logo"
-            className="relative w-[420px] max-w-full drop-shadow-2xl"
-            animate={{ y: [0, -12, 0], rotate: [-1, 1, -1] }}
-            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+            className="relative w-[240px] md:w-[420px] max-w-full drop-shadow-2xl"
+            animate={{ y: [0, -15, 0], rotate: [-2, 2, -2] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           />
         </motion.div>
       </section>

@@ -73,7 +73,14 @@
 
 @layer base {
   * { border-color: var(--color-border); }
-  html { scroll-behavior: smooth; }
+  html, body { 
+    scroll-behavior: smooth; 
+    overflow-x: hidden;
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
   body {
     background: var(--background);
     color: var(--color-foreground);
@@ -82,6 +89,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    position: relative;
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);

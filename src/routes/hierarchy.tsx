@@ -47,7 +47,7 @@ function HierarchyPage() {
         </div>
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl h-[600px] glass rounded-3xl overflow-hidden">
+      <div className="relative z-10 mx-auto max-w-7xl w-[92%] md:w-full h-[600px] glass rounded-3xl overflow-hidden">
         <TransformWrapper minScale={0.4} maxScale={2.5} initialScale={0.85} centerOnInit>
           <TransformComponent 
             wrapperStyle={{ width: "100%", height: "100%" }} 
