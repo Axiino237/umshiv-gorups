@@ -101,12 +101,19 @@ function HierarchyPage() {
                     animate={{ scale: 1, opacity: 1, y: 0 }}
                     transition={{ delay: 0.5 + i * 0.1, type: "spring", stiffness: 180 }}
                   >
-                    <circle cx={x} cy={300} r={65} fill="oklch(0.22 0.05 150)" stroke="oklch(0.45 0.11 145)" strokeWidth="2" />
-                    <circle cx={x} cy={300} r={75} fill="oklch(0.45 0.11 145 / 0.15)" />
-                    <text x={x} y={290} textAnchor="middle" fill="oklch(0.78 0.13 85)" fontSize="8" fontWeight="600" letterSpacing="1">
-                      {m.role.toUpperCase()}
+                    <circle cx={x} cy={300} r={60} fill="oklch(0.22 0.05 150)" stroke="oklch(0.45 0.11 145)" strokeWidth="2" />
+                    <circle cx={x} cy={300} r={70} fill="oklch(0.45 0.11 145 / 0.15)" />
+                    <text x={x} y={285} textAnchor="middle" fill="oklch(0.78 0.13 85)" fontSize="8" fontWeight="600" letterSpacing="1">
+                      {m.role.includes(" & ") ? (
+                        <>
+                          <tspan x={x} dy="0">{m.role.split(" & ")[0].toUpperCase()} &</tspan>
+                          <tspan x={x} dy="12">{m.role.split(" & ")[1].toUpperCase()}</tspan>
+                        </>
+                      ) : (
+                        <tspan x={x} dy="8">{m.role.toUpperCase()}</tspan>
+                      )}
                     </text>
-                    <text x={x} y={312} textAnchor="middle" fill="oklch(0.96 0.02 90)" fontSize="11" style={{ fontFamily: "var(--font-display)" }}>
+                    <text x={x} y={320} textAnchor="middle" fill="oklch(0.96 0.02 90)" fontSize="11" style={{ fontFamily: "var(--font-display)" }}>
                       {m.name}
                     </text>
                   </motion.g>
