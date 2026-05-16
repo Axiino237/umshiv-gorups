@@ -151,7 +151,7 @@ function CompaniesPage() {
                 />
                 <text
                   x={x}
-                  y={y + 5}
+                  y={y - ((c.name.split(" ").length - 1) * 7.5)}
                   textAnchor="middle"
                   fill={isHovered ? "white" : "var(--gold)"}
                   fontSize={isHovered ? "14" : "12"}
@@ -167,7 +167,7 @@ function CompaniesPage() {
                   }}
                 >
                   {c.name.split(" ").map((w, j) => (
-                    <tspan key={j} x={x} dy={j === 0 ? 0 : 15}>{w}</tspan>
+                    <tspan key={j} x={x} dy={j === 0 ? "0" : "1.2em"}>{w}</tspan>
                   ))}
                 </text>
               </g>
