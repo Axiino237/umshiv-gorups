@@ -33,8 +33,8 @@ function CompaniesPage() {
     () =>
       Array.from({ length: 40 }).map((_, i) => ({
         id: i,
-        fx: -480 + Math.random() * 960,
-        fy: -440 + Math.random() * 380,
+        fx: -640 + Math.random() * 1280,
+        fy: -560 + Math.random() * 920,
         dur: 3 + Math.random() * 4,
         r: 1.6 + Math.random() * 1.4,
       })),
@@ -45,8 +45,8 @@ function CompaniesPage() {
     () =>
       Array.from({ length: 100 }).map((_, i) => ({
         id: i,
-        sx: -540 + Math.random() * 1080,
-        sy: -470 + Math.random() * 200,
+        sx: -640 + Math.random() * 1280,
+        sy: -560 + Math.random() * 920,
         r: 0.8 + Math.random() * 0.8,
         op: 0.3 + Math.random() * 0.5,
         dur: 2 + Math.random() * 3,
