@@ -31,7 +31,7 @@ function CompaniesPage() {
 
   const fireflies = useMemo(
     () =>
-      Array.from({ length: 18 }).map((_, i) => ({
+      Array.from({ length: 40 }).map((_, i) => ({
         id: i,
         fx: -480 + Math.random() * 960,
         fy: -440 + Math.random() * 380,
@@ -43,7 +43,7 @@ function CompaniesPage() {
 
   const stars = useMemo(
     () =>
-      Array.from({ length: 30 }).map((_, i) => ({
+      Array.from({ length: 100 }).map((_, i) => ({
         id: i,
         sx: -540 + Math.random() * 1080,
         sy: -470 + Math.random() * 200,
@@ -117,7 +117,7 @@ function CompaniesPage() {
               r={s.r}
               fill="white"
               initial={{ opacity: s.op }}
-              animate={{ opacity: [s.op, s.op * 0.2, s.op] }}
+              animate={{ opacity: [s.op, s.op * 0.1, s.op] }}
               transition={{ duration: s.dur, repeat: Infinity, ease: "easeInOut" }}
             />
           ))}
@@ -126,16 +126,17 @@ function CompaniesPage() {
               key={`firefly-${f.id}`}
               cx={f.fx}
               cy={f.fy}
-              r={f.r}
+              r={f.r * 1.5}
               fill="var(--gold)"
-              initial={{ opacity: 0.4 }}
+              initial={{ opacity: 0.3 }}
               animate={{ 
-                opacity: [0.4, 0.8, 0.4],
-                x: [0, Math.random() * 20 - 10, 0],
-                y: [0, Math.random() * 20 - 10, 0]
+                opacity: [0.3, 1, 0.3],
+                scale: [1, 1.5, 1],
+                x: [0, Math.random() * 80 - 40, 0],
+                y: [0, Math.random() * 80 - 40, 0]
               }}
               transition={{ duration: f.dur, repeat: Infinity, ease: "easeInOut" }}
-              style={{ filter: "blur(1px)" }}
+              style={{ filter: "blur(2px)" }}
             />
           ))}
 
