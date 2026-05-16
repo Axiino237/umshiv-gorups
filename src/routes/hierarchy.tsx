@@ -101,12 +101,12 @@ function HierarchyPage() {
                     animate={{ scale: 1, opacity: 1, y: 0 }}
                     transition={{ delay: 0.5 + i * 0.1, type: "spring", stiffness: 180 }}
                   >
-                    <circle cx={x} cy={300} r={50} fill="oklch(0.22 0.05 150)" stroke="oklch(0.45 0.11 145)" strokeWidth="2" />
-                    <circle cx={x} cy={300} r={58} fill="oklch(0.45 0.11 145 / 0.15)" />
-                    <text x={x} y={293} textAnchor="middle" fill="oklch(0.78 0.13 85)" fontSize="9" fontWeight="600" letterSpacing="1">
+                    <circle cx={x} cy={300} r={65} fill="oklch(0.22 0.05 150)" stroke="oklch(0.45 0.11 145)" strokeWidth="2" />
+                    <circle cx={x} cy={300} r={75} fill="oklch(0.45 0.11 145 / 0.15)" />
+                    <text x={x} y={290} textAnchor="middle" fill="oklch(0.78 0.13 85)" fontSize="8" fontWeight="600" letterSpacing="1">
                       {m.role.toUpperCase()}
                     </text>
-                    <text x={x} y={310} textAnchor="middle" fill="oklch(0.96 0.02 90)" fontSize="11" style={{ fontFamily: "var(--font-display)" }}>
+                    <text x={x} y={312} textAnchor="middle" fill="oklch(0.96 0.02 90)" fontSize="11" style={{ fontFamily: "var(--font-display)" }}>
                       {m.name}
                     </text>
                   </motion.g>
