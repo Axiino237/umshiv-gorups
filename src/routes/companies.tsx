@@ -11,11 +11,11 @@ export const Route = createFileRoute("/companies")({ component: CompaniesPage })
 // Hand-placed natural branch endpoints (x, y) where company "fruits" hang.
 // Trunk base is at (0, 280) and trunk top near (0, -20).
 const branches: { id: string; tip: { x: number; y: number } }[] = [
-  { id: companies[0].id, tip: { x: -410, y: -105 } },
-  { id: companies[1].id, tip: { x: -230, y: -250 } },
-  { id: companies[2].id, tip: { x: 0, y: -290 } },
-  { id: companies[3].id, tip: { x: 230, y: -265 } },
-  { id: companies[4].id, tip: { x: 412, y: -125 } },
+  { id: companies[0].id, tip: { x: -450, y: 150 } },
+  { id: companies[1].id, tip: { x: -380, y: -250 } },
+  { id: companies[2].id, tip: { x: 0, y: -420 } },
+  { id: companies[3].id, tip: { x: 380, y: -250 } },
+  { id: companies[4].id, tip: { x: 450, y: 150 } },
 ];
 
 
@@ -91,30 +91,31 @@ function CompaniesPage() {
             </radialGradient>
           </defs>
 
-          {/* Energy lines from root to branches */}
+          {/* Energy lines from center to branches */}
           {branches.map((b, i) => (
             <motion.path
               key={`line-${b.id}`}
-              d={`M 0 280 Q ${b.tip.x / 2} ${b.tip.y + 150}, ${b.tip.x} ${b.tip.y}`}
+              d={`M 0 -80 L ${b.tip.x} ${b.tip.y}`}
               stroke="url(#orbFill)"
-              strokeWidth="4"
+              strokeWidth="3"
               fill="none"
               initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: 0.4 }}
+              animate={{ pathLength: 1, opacity: 0.3 }}
               transition={{ duration: 2, delay: i * 0.2 }}
             />
           ))}
 
-          {/* Root Logo */}
+          {/* Center Logo */}
           <motion.image
             href={logo}
-            x="-230"
-            y="-100"
-            width="460"
-            height="460"
-            initial={{ opacity: 0, scale: 0.8 }}
+            x="-250"
+            bottom="-330" 
+            y="-330"
+            width="500"
+            height="500"
+            initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
           />
 
           {/* company orbs */}
@@ -138,10 +139,10 @@ function CompaniesPage() {
                 <circle
                   cx={x}
                   cy={y}
-                  r={isHovered ? 100 : 90}
-                  fill={isHovered ? "url(#orbFill)" : "transparent"}
-                  filter={isHovered ? "url(#orbGlow)" : "none"}
-                  stroke={isHovered ? "var(--gold)" : "transparent"}
+                  r={isHovered ? 120 : 100}
+                  fill={isHovered ? "url(#orbFill)" : "rgba(255,255,255,0.05)"}
+                  filter="url(#orbGlow)"
+                  stroke={isHovered ? "var(--gold)" : "rgba(255,215,0,0.2)"}
                   strokeWidth="2"
                   style={{ transition: "all 0.3s" }}
                 />
