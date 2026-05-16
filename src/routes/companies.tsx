@@ -153,17 +153,17 @@ function CompaniesPage() {
             transition={{ duration: 1.5, ease: "easeOut" }}
           />
 
-          {/* Brand Text: UMSHIV (Above Tree) */}
+          {/* Brand Text below Tree */}
           <motion.text
             x="0"
-            y="-460"
+            y="200"
             textAnchor="middle"
             fill="var(--gold)"
             fontSize="72"
             fontWeight="900"
             letterSpacing="0.2em"
-            initial={{ opacity: 0, y: -480 }}
-            animate={{ opacity: 1, y: -460 }}
+            initial={{ opacity: 0, y: 220 }}
+            animate={{ opacity: 1, y: 200 }}
             transition={{ duration: 1.5, delay: 0.5 }}
             className="select-none pointer-events-none uppercase"
             style={{
@@ -173,24 +173,9 @@ function CompaniesPage() {
           >
             UMSHIV
           </motion.text>
-
-          {/* Center Logo Symbol */}
-          <motion.image
-            href={logo}
-            x="-450"
-            y="-435"
-            width="900"
-            height="900"
-            clipPath="url(#logoCrop)"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
-          />
-
-          {/* Sub-text: GROUP OF COMPANIES (Below Tree) */}
           <motion.text
             x="0"
-            y="130"
+            y="250"
             textAnchor="middle"
             fill="var(--gold)"
             fontSize="18"
