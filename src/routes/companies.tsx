@@ -153,17 +153,17 @@ function CompaniesPage() {
             transition={{ duration: 1.5, ease: "easeOut" }}
           />
 
-          {/* Brand Text below Tree */}
+          {/* Brand Text above Tree */}
           <motion.text
             x="0"
-            y="120"
+            y="-480"
             textAnchor="middle"
             fill="var(--gold)"
             fontSize="72"
             fontWeight="900"
             letterSpacing="0.2em"
-            initial={{ opacity: 0, y: 140 }}
-            animate={{ opacity: 1, y: 120 }}
+            initial={{ opacity: 0, y: -500 }}
+            animate={{ opacity: 1, y: -480 }}
             transition={{ duration: 1.5, delay: 0.5 }}
             className="select-none pointer-events-none uppercase"
             style={{
@@ -175,7 +175,7 @@ function CompaniesPage() {
           </motion.text>
           <motion.text
             x="0"
-            y="170"
+            y="-430"
             textAnchor="middle"
             fill="var(--gold)"
             fontSize="18"
