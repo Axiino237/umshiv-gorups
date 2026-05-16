@@ -97,9 +97,9 @@ export const companies: Company[] = [
     website: "https://example.com/firststep",
     email: "hello@thefirststep.com",
     phone: "+91 98765 11111",
-    ceo: "vijay",
+    ceo: "Ajay",
     team: [
-      { name: "vijay", role: "CEO" },
+      { name: "Ajay", role: "CEO" },
     ],
   },
 ];
