@@ -90,7 +90,7 @@ function CompaniesPage() {
               <stop offset="100%" stopColor="oklch(0.78 0.13 85 / 0)" />
             </radialGradient>
             <clipPath id="logoCrop">
-              <rect x="-450" y="-500" width="900" height="600" />
+              <rect x="-450" y="-500" width="900" height="500" />
             </clipPath>
           </defs>
 
