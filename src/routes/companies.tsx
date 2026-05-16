@@ -90,7 +90,7 @@ function CompaniesPage() {
               <stop offset="100%" stopColor="oklch(0.78 0.13 85 / 0)" />
             </radialGradient>
             <clipPath id="logoCrop">
-              <rect x="-450" y="-550" width="900" height="600" />
+              <rect x="-450" y="-500" width="900" height="600" />
             </clipPath>
           </defs>
 
@@ -112,7 +112,7 @@ function CompaniesPage() {
           <motion.image
             href={logo}
             x="-450"
-            y="-450"
+            y="-435"
             width="900"
             height="900"
             clipPath="url(#logoCrop)"
@@ -153,17 +153,17 @@ function CompaniesPage() {
                   x={x}
                   y={y + 5}
                   textAnchor="middle"
-                  fill={isHovered ? "white" : "oklch(0.45 0.11 145)"}
+                  fill={isHovered ? "white" : "var(--gold)"}
                   fontSize={isHovered ? "14" : "12"}
                   fontWeight="900"
-                  opacity={isHovered ? 1 : 0.8}
+                  opacity={isHovered ? 1 : 0.9}
                   style={{
                     fontFamily: "var(--font-display)",
                     transition: "all 0.3s",
                     textTransform: "uppercase",
                     letterSpacing: "1px",
                     pointerEvents: "none",
-                    filter: isHovered ? "none" : "drop-shadow(0 1px 2px rgba(255,255,255,0.4))"
+                    filter: isHovered ? "drop-shadow(0 0 8px rgba(255,255,255,0.4))" : "drop-shadow(0 1px 3px rgba(0,0,0,0.8))"
                   }}
                 >
                   {c.name.split(" ").map((w, j) => (
