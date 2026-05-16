@@ -129,7 +129,7 @@ function CompaniesPage() {
               r={f.r * 1.5}
               fill="var(--gold)"
               initial={{ opacity: 0.3 }}
-              animate={{ 
+              animate={{
                 opacity: [0.3, 1, 0.3],
                 scale: [1, 1.5, 1],
                 x: [0, Math.random() * 80 - 40, 0],
@@ -156,7 +156,7 @@ function CompaniesPage() {
           {/* Brand Text below Tree */}
           <motion.text
             x="0"
-            y="200"
+            y="10"
             textAnchor="middle"
             fill="var(--gold)"
             fontSize="72"
@@ -238,9 +238,9 @@ function CompaniesPage() {
                   }}
                 >
                   {c.name.split(" ").map((w, j, arr) => (
-                    <tspan 
-                      key={j} 
-                      x={x} 
+                    <tspan
+                      key={j}
+                      x={x}
                       dy={j === 0 ? `-${(arr.length - 1) * 0.6}em` : "1.2em"}
                     >
                       {w}
