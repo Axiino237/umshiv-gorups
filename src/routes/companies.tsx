@@ -91,19 +91,6 @@ function CompaniesPage() {
             </radialGradient>
           </defs>
 
-          {/* Background Watermark Logo */}
-          <motion.image
-            href={logo}
-            x="-640"
-            y="-560"
-            width="1280"
-            height="920"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.1 }}
-            transition={{ duration: 2 }}
-            preserveAspectRatio="xMidYMid slice"
-          />
-
           {/* Energy lines from center to branches */}
           {branches.map((b, i) => (
             <motion.path
@@ -121,11 +108,11 @@ function CompaniesPage() {
           {/* Center Logo */}
           <motion.image
             href={logo}
-            x="-350"
-            y="-350"
-            width="700"
-            height="700"
-            initial={{ opacity: 0, scale: 0.5 }}
+            x="-450"
+            y="-500"
+            width="900"
+            height="900"
+            initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
           />
