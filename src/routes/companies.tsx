@@ -91,11 +91,24 @@ function CompaniesPage() {
             </radialGradient>
           </defs>
 
+          {/* Background Watermark Logo */}
+          <motion.image
+            href={logo}
+            x="-640"
+            y="-560"
+            width="1280"
+            height="920"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.1 }}
+            transition={{ duration: 2 }}
+            preserveAspectRatio="xMidYMid slice"
+          />
+
           {/* Energy lines from center to branches */}
           {branches.map((b, i) => (
             <motion.path
               key={`line-${b.id}`}
-              d={`M 0 -80 L ${b.tip.x} ${b.tip.y}`}
+              d={`M 0 -50 L ${b.tip.x} ${b.tip.y}`}
               stroke="url(#orbFill)"
               strokeWidth="3"
               fill="none"
@@ -108,11 +121,10 @@ function CompaniesPage() {
           {/* Center Logo */}
           <motion.image
             href={logo}
-            x="-250"
-            bottom="-330" 
-            y="-330"
-            width="500"
-            height="500"
+            x="-350"
+            y="-350"
+            width="700"
+            height="700"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
