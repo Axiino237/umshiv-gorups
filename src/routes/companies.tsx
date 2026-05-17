@@ -220,31 +220,30 @@ function CompaniesPage() {
                   strokeWidth="2"
                   style={{ transition: "all 0.3s" }}
                 />
-                <foreignObject
-                  x={x - 100}
-                  y={y - 100}
-                  width="200"
-                  height="200"
-                  style={{ pointerEvents: "none" }}
+                <text
+                  x={x}
+                  y={y}
+                  textAnchor="middle"
+                  className="font-display font-black uppercase pointer-events-none transition-all duration-300"
+                  style={{
+                    fontSize: isHovered ? "18px" : "15px",
+                    fill: isHovered ? "white" : "var(--gold)",
+                    opacity: isHovered ? 1 : 0.9,
+                    letterSpacing: "1px",
+                    textShadow: isHovered
+                      ? "0 0 10px rgba(255,255,255,0.5)"
+                      : "0 1px 4px rgba(0,0,0,0.9)",
+                  }}
                 >
-                  <div className="w-full h-full flex items-center justify-center p-4">
-                    <p
-                      className="font-display font-black uppercase text-center transition-all duration-300"
-                      style={{
-                        fontSize: isHovered ? "18px" : "15px",
-                        color: isHovered ? "white" : "var(--gold)",
-                        opacity: isHovered ? 1 : 0.9,
-                        letterSpacing: "1px",
-                        lineHeight: "1.2",
-                        textShadow: isHovered
-                          ? "0 0 10px rgba(255,255,255,0.5)"
-                          : "0 1px 4px rgba(0,0,0,0.9)"
-                      }}
-                    >
-                      {c.name}
-                    </p>
-                  </div>
-                </foreignObject>
+                  {c.name === "The First Step Solution" ? (
+                    <>
+                      <tspan x={x} dy="-0.2em">THE FIRST STEP</tspan>
+                      <tspan x={x} dy="1.2em">SOLUTION</tspan>
+                    </>
+                  ) : (
+                    <tspan x={x} dy="0.35em">{c.name}</tspan>
+                  )}
+                </text>
               </g>
             );
           })}
