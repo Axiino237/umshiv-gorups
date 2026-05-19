@@ -93,7 +93,7 @@ export const companies: Company[] = [
       "A premium event infrastructure partner specializing in designing and setting up professional stalls for exhibitions, corporate events, and trade fairs.",
     industry: "Event Infrastructure",
     founded: "2026",
-    website: "https://example.com/firststep",
+    website: "https://insight-lens-express.vercel.app/",
     email: "hello@thefirststep.com",
     phone: "+91 98765 11111",
     ceo: "Ajay",
