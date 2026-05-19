@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { SiteFooter } from "../components/SiteFooter";
 
 function NotFoundComponent() {
   return (
@@ -73,15 +74,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "UMSHIV — Group of Companies" },
-      { name: "description", content: "UMSHIV Group of Companies — agriculture, construction, energy, retail and technology growing as one tree." },
+      { name: "description", content: "UMSHIV Group of Companies — travel, digital solutions, creative branding, wedding design, and event infrastructure growing as one tree." },
       { name: "author", content: "UMSHIV" },
       { property: "og:title", content: "UMSHIV — Group of Companies" },
-      { property: "og:description", content: "UMSHIV Group of Companies — agriculture, construction, energy, retail and technology growing as one tree." },
+      { property: "og:description", content: "UMSHIV Group of Companies — travel, digital solutions, creative branding, wedding design, and event infrastructure growing as one tree." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@UMSHIV" },
       { name: "twitter:title", content: "UMSHIV — Group of Companies" },
-      { name: "twitter:description", content: "UMSHIV Group of Companies — agriculture, construction, energy, retail and technology growing as one tree." },
+      { name: "twitter:description", content: "UMSHIV Group of Companies — travel, digital solutions, creative branding, wedding design, and event infrastructure growing as one tree." },
       { property: "og:image", content: "/umshiv-logo.png" },
       { name: "twitter:image", content: "/umshiv-logo.png" },
     ],
@@ -117,7 +118,12 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <div className="flex flex-col min-h-screen">
+        <div className="flex-grow">
+          <Outlet />
+        </div>
+        <SiteFooter />
+      </div>
     </QueryClientProvider>
   );
 }

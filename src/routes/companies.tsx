@@ -13,7 +13,7 @@ export const Route = createFileRoute("/companies")({ component: CompaniesPage })
 const branches: { id: string; tip: { x: number; y: number } }[] = [
   { id: companies[0].id, tip: { x: -450, y: 150 } },
   { id: companies[1].id, tip: { x: -380, y: -250 } },
-  { id: companies[2].id, tip: { x: 0, y: -420 } },
+  { id: companies[2].id, tip: { x: 1, y: -420 } },
   { id: companies[3].id, tip: { x: 380, y: -250 } },
   { id: companies[4].id, tip: { x: 450, y: 150 } },
 ];
@@ -89,24 +89,14 @@ function CompaniesPage() {
               <stop offset="0%" stopColor="oklch(0.88 0.16 85 / 0.5)" />
               <stop offset="100%" stopColor="oklch(0.78 0.13 85 / 0)" />
             </radialGradient>
+            <linearGradient id="verticalLineGrad" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0%" stopColor="oklch(0.88 0.16 85 / 0.5)" />
+              <stop offset="100%" stopColor="oklch(0.78 0.13 85 / 0)" />
+            </linearGradient>
             <clipPath id="logoCrop">
               <rect x="-450" y="-500" width="900" height="600" />
             </clipPath>
           </defs>
-
-          {/* Energy lines from center to branches */}
-          {branches.map((b, i) => (
-            <motion.path
-              key={`line-${b.id}`}
-              d={`M 0 -50 L ${b.tip.x} ${b.tip.y}`}
-              stroke="url(#orbFill)"
-              strokeWidth="3"
-              fill="none"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: 0.3 }}
-              transition={{ duration: 2, delay: i * 0.2 }}
-            />
-          ))}
 
           {/* Sparkles (Stars & Fireflies) */}
           {stars.map((s) => (
@@ -137,6 +127,20 @@ function CompaniesPage() {
               }}
               transition={{ duration: f.dur, repeat: Infinity, ease: "easeInOut" }}
               style={{ filter: "blur(2px)" }}
+            />
+          ))}
+
+          {/* Energy lines from center to branches */}
+          {branches.map((b, i) => (
+            <motion.path
+              key={`line-${b.id}`}
+              d={`M 0 -50 L ${b.tip.x} ${b.tip.y}`}
+              stroke={b.id === companies[2].id ? "url(#verticalLineGrad)" : "url(#orbFill)"}
+              strokeWidth="3"
+              fill="none"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 0.3 }}
+              transition={{ duration: 2, delay: i * 0.2 }}
             />
           ))}
 
@@ -298,75 +302,52 @@ function CompaniesPage() {
               >
                 ×
               </button>
-              {active.id === "axiino-tech" ? (
-                <>
-                  <p className="text-gold text-xs uppercase tracking-[0.3em]">
-                    {active.industry} · est. {active.founded}
-                  </p>
-                  <h2 className="font-display text-4xl mt-2">{active.name}</h2>
-                  <p className="italic text-gold/80 mt-1">{active.tagline}</p>
-                  <p className="text-muted-foreground mt-6">{active.description}</p>
+              <>
+                <p className="text-gold text-xs uppercase tracking-[0.3em]">
+                  {active.industry} · est. {active.founded}
+                </p>
+                <h2 className="font-display text-4xl mt-2">{active.name}</h2>
+                <p className="italic text-gold/80 mt-1">"{active.tagline}"</p>
+                <p className="text-muted-foreground mt-6">{active.description}</p>
 
-                  <div className="grid grid-cols-2 gap-4 mt-6 text-sm">
-                    <div>
-                      <div className="text-gold/70 text-xs uppercase">CEO</div>
-                      <div>{active.ceo}</div>
-                    </div>
-                    <div>
-                      <div className="text-gold/70 text-xs uppercase">Email</div>
-                      <div>{active.email}</div>
-                    </div>
-                    <div>
-                      <div className="text-gold/70 text-xs uppercase">Phone</div>
-                      <div>{active.phone}</div>
-                    </div>
-                    <div>
-                      <div className="text-gold/70 text-xs uppercase">Team</div>
-                      <div>{active.team.length} members</div>
-                    </div>
+                <div className="grid grid-cols-2 gap-4 mt-6 text-sm">
+                  <div>
+                    <div className="text-gold/70 text-xs uppercase">CEO</div>
+                    <div className="text-foreground">{active.ceo}</div>
                   </div>
+                  <div>
+                    <div className="text-gold/70 text-xs uppercase">Email</div>
+                    <div className="text-foreground">{active.email}</div>
+                  </div>
+                  <div>
+                    <div className="text-gold/70 text-xs uppercase">Phone</div>
+                    <div className="text-foreground">{active.phone}</div>
+                  </div>
+                  <div>
+                    <div className="text-gold/70 text-xs uppercase">Team</div>
+                    <div className="text-foreground">{active.team.length} members</div>
+                  </div>
+                </div>
 
-                  <div className="flex gap-3 mt-8">
+                <div className="flex gap-3 mt-8">
+                  {active.website && !active.website.includes("example.com") && (
                     <a
                       href={active.website}
                       target="_blank"
                       rel="noreferrer"
-                      className="px-6 py-3 rounded-full gradient-gold text-gold-foreground font-medium shadow-gold hover:scale-[1.03] transition-transform"
+                      className="px-6 py-3 rounded-full gradient-gold text-gold-foreground font-medium shadow-gold hover:scale-[1.03] transition-transform text-sm"
                     >
                       Visit Website →
                     </a>
-                    <a
-                      href={`mailto:${active.email}`}
-                      className="px-6 py-3 rounded-full border border-gold/40 text-gold hover:bg-gold/10 transition"
-                    >
-                      Contact us
-                    </a>
-                  </div>
-                </>
-              ) : (
-                <div className="text-center py-12">
-                  <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gold/10 flex items-center justify-center border border-gold/20">
-                    <span className="text-4xl">⏳</span>
-                  </div>
-                  <p className="text-gold text-xs uppercase tracking-[0.4em] mb-2">Branch Status</p>
-                  <h2 className="font-display text-5xl mb-4">Coming Soon</h2>
-                  <p className="text-muted-foreground max-w-sm mx-auto leading-relaxed">
-                    The {active.name} branch is currently being nurtured.
-                    We are preparing something magical for you.
-                  </p>
-                  <div className="mt-10 flex flex-col items-center gap-4">
-                    <div className="px-5 py-2 rounded-full border border-gold/20 text-gold/60 text-xs tracking-widest uppercase">
-                      Estimated Bloom: Q3 2026
-                    </div>
-                    <button
-                      onClick={() => setActive(null)}
-                      className="text-gold/60 hover:text-gold transition-colors text-sm underline underline-offset-4"
-                    >
-                      Back to tree
-                    </button>
-                  </div>
+                  )}
+                  <a
+                    href={`mailto:${active.email}`}
+                    className="px-6 py-3 rounded-full border border-gold/40 text-gold hover:bg-gold/10 transition text-sm"
+                  >
+                    Email Us
+                  </a>
                 </div>
-              )}
+              </>
             </motion.div>
           </motion.div>
         )}
@@ -378,7 +359,7 @@ function CompaniesPage() {
           <p className="text-gold uppercase tracking-[0.3em] text-xs mb-3">The Branch Directory</p>
           <h2 className="font-display text-4xl md:text-5xl">Each branch, a world of its own</h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            From soil to silicon — every UMSHIV branch carries its own craft, its own
+            From travel to digital solutions — every UMSHIV branch carries its own craft, its own
             people, and its own promise. Pick one to explore deeper.
           </p>
         </div>

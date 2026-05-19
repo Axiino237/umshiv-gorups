@@ -27,8 +27,8 @@ function Index() {
             <br /> rooted in trust.
           </h1>
           <p className="text-muted-foreground text-base md:text-lg max-w-lg mb-10">
-            UMSHIV is a family of companies cultivating agriculture, construction,
-            energy, retail and technology — branches of a single living vision.
+            UMSHIV is a family of companies cultivating travel, digital solutions,
+            creative branding, wedding design, and event infrastructure — branches of a single living vision.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
@@ -103,7 +103,7 @@ function Index() {
             same roots: patience, craft and kinship.
           </p>
           <p className="text-muted-foreground leading-relaxed">
-            Today UMSHIV spans consulting, design, events and technology.
+            Today UMSHIV spans travel, technology, graphic design, wedding events, and event infrastructure.
             Different industries, one philosophy: grow slowly, grow together,
             grow well.
           </p>
@@ -171,7 +171,7 @@ function Index() {
         <div className="grid md:grid-cols-4 gap-6">
           {[
             { t: "Patience", d: "Trees take seasons. So do real businesses." },
-            { t: "Stewardship", d: "Care for soil, people and capital alike." },
+            { t: "Stewardship", d: "Care for details, people and capital alike." },
             { t: "Craft", d: "Every product made with intent and pride." },
             { t: "Kinship", d: "Companies as family, partners as kin." },
           ].map((v, i) => (
@@ -190,21 +190,6 @@ function Index() {
         </div>
       </section>
 
-      {/* TESTIMONIAL */}
-      <section className="relative z-10 mx-auto max-w-4xl px-6 py-24 text-center">
-        <motion.blockquote
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="font-display text-2xl md:text-4xl leading-snug italic"
-        >
-          “UMSHIV doesn't act like a corporation — it acts like a grove.
-          Steady, generous, and quietly everywhere.”
-        </motion.blockquote>
-        <div className="mt-8 text-sm text-muted-foreground tracking-wider uppercase">
-          — Hindu Business Line
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="relative z-10 mx-auto max-w-5xl px-6 pb-32">

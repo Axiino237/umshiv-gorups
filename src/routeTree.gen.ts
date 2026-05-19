@@ -9,11 +9,23 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as HierarchyRouteImport } from './routes/hierarchy'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CompaniesRouteImport } from './routes/companies'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HierarchyRoute = HierarchyRouteImport.update({
   id: '/hierarchy',
   path: '/hierarchy',
@@ -40,12 +52,16 @@ export interface FileRoutesByFullPath {
   '/companies': typeof CompaniesRoute
   '/contact': typeof ContactRoute
   '/hierarchy': typeof HierarchyRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/companies': typeof CompaniesRoute
   '/contact': typeof ContactRoute
   '/hierarchy': typeof HierarchyRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +69,28 @@ export interface FileRoutesById {
   '/companies': typeof CompaniesRoute
   '/contact': typeof ContactRoute
   '/hierarchy': typeof HierarchyRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/companies' | '/contact' | '/hierarchy'
+  fullPaths:
+    | '/'
+    | '/companies'
+    | '/contact'
+    | '/hierarchy'
+    | '/privacy'
+    | '/terms'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/companies' | '/contact' | '/hierarchy'
-  id: '__root__' | '/' | '/companies' | '/contact' | '/hierarchy'
+  to: '/' | '/companies' | '/contact' | '/hierarchy' | '/privacy' | '/terms'
+  id:
+    | '__root__'
+    | '/'
+    | '/companies'
+    | '/contact'
+    | '/hierarchy'
+    | '/privacy'
+    | '/terms'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,10 +98,26 @@ export interface RootRouteChildren {
   CompaniesRoute: typeof CompaniesRoute
   ContactRoute: typeof ContactRoute
   HierarchyRoute: typeof HierarchyRoute
+  PrivacyRoute: typeof PrivacyRoute
+  TermsRoute: typeof TermsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/hierarchy': {
       id: '/hierarchy'
       path: '/hierarchy'
@@ -107,6 +154,8 @@ const rootRouteChildren: RootRouteChildren = {
   CompaniesRoute: CompaniesRoute,
   ContactRoute: ContactRoute,
   HierarchyRoute: HierarchyRoute,
+  PrivacyRoute: PrivacyRoute,
+  TermsRoute: TermsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
