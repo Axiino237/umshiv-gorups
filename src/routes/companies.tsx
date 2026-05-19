@@ -285,7 +285,7 @@ function CompaniesPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[60] flex items-center justify-center p-6 bg-background/80 backdrop-blur-md"
+            className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6 bg-background/80 backdrop-blur-md"
             onClick={() => setActive(null)}
           >
             <motion.div
@@ -293,31 +293,31 @@ function CompaniesPage() {
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 30 }}
               onClick={(e) => e.stopPropagation()}
-              className="glass rounded-3xl max-w-2xl w-full p-10 shadow-leaf relative"
+              className="glass rounded-3xl max-w-2xl w-full p-6 sm:p-10 shadow-leaf relative"
             >
               <button
                 onClick={() => setActive(null)}
-                className="absolute top-4 right-5 text-gold/70 hover:text-gold text-2xl"
+                className="absolute top-4 right-5 text-gold/70 hover:text-gold text-2xl z-10"
                 aria-label="Close"
               >
                 ×
               </button>
               <>
-                <p className="text-gold text-xs uppercase tracking-[0.3em]">
+                <p className="text-gold text-xs uppercase tracking-[0.3em] pr-6">
                   {active.industry} · est. {active.founded}
                 </p>
-                <h2 className="font-display text-4xl mt-2">{active.name}</h2>
-                <p className="italic text-gold/80 mt-1">"{active.tagline}"</p>
-                <p className="text-muted-foreground mt-6">{active.description}</p>
+                <h2 className="font-display text-2xl sm:text-3xl md:text-4xl mt-2">{active.name}</h2>
+                <p className="italic text-gold/80 mt-1 text-sm sm:text-base">"{active.tagline}"</p>
+                <p className="text-muted-foreground mt-4 sm:mt-6 text-sm sm:text-base">{active.description}</p>
 
-                <div className="grid grid-cols-2 gap-4 mt-6 text-sm">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6 text-sm">
                   <div>
                     <div className="text-gold/70 text-xs uppercase">CEO</div>
                     <div className="text-foreground">{active.ceo}</div>
                   </div>
                   <div>
                     <div className="text-gold/70 text-xs uppercase">Email</div>
-                    <div className="text-foreground">{active.email}</div>
+                    <div className="text-foreground break-all">{active.email}</div>
                   </div>
                   <div>
                     <div className="text-gold/70 text-xs uppercase">Phone</div>
@@ -329,20 +329,20 @@ function CompaniesPage() {
                   </div>
                 </div>
 
-                <div className="flex gap-3 mt-8">
+                <div className="flex flex-col sm:flex-row gap-3 mt-8">
                   {active.website && !active.website.includes("example.com") && (
                     <a
                       href={active.website}
                       target="_blank"
                       rel="noreferrer"
-                      className="px-6 py-3 rounded-full gradient-gold text-gold-foreground font-medium shadow-gold hover:scale-[1.03] transition-transform text-sm"
+                      className="px-6 py-3 rounded-full gradient-gold text-gold-foreground font-medium shadow-gold hover:scale-[1.03] transition-transform text-sm text-center w-full sm:w-auto"
                     >
                       Visit Website →
                     </a>
                   )}
                   <a
                     href={`mailto:${active.email}`}
-                    className="px-6 py-3 rounded-full border border-gold/40 text-gold hover:bg-gold/10 transition text-sm"
+                    className="px-6 py-3 rounded-full border border-gold/40 text-gold hover:bg-gold/10 transition text-sm text-center w-full sm:w-auto"
                   >
                     Email Us
                   </a>
@@ -374,7 +374,7 @@ function CompaniesPage() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: i * 0.1 }}
               whileHover={{ y: -6 }}
-              className="glass rounded-3xl p-7 text-left relative overflow-hidden group"
+              className="glass rounded-3xl p-5 sm:p-7 text-left relative overflow-hidden group"
             >
               <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-gold/10 blur-3xl group-hover:bg-gold/25 transition-colors" />
               <div className="relative">
