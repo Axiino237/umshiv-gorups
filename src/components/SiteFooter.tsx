@@ -108,8 +108,8 @@ export function SiteFooter() {
             </div>
             <div className="flex items-center gap-2">
               <Phone className="w-3.5 h-3.5 text-gold/80" />
-              <a href="tel:+919876500000" className="hover:text-gold transition-colors">
-                +91 98765 00000
+              <a href="tel:+914431536968" className="hover:text-gold transition-colors">
+                +91 44 3153 6968
               </a>
             </div>
           </div>

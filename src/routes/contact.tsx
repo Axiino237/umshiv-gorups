@@ -51,7 +51,7 @@ function ContactPage() {
             {[
               { l: "Headquarters", v: "UMSHIV House, Mumbai, India" },
               { l: "Email", v: "hello@umshiv.com" },
-              { l: "Phone", v: "+91 98765 00000" },
+              { l: "Phone", v: "+91 44 3153 6968" },
               { l: "Hours", v: "Mon–Sat · 9:30 to 18:30 IST" },
             ].map((b) => (
               <div key={b.l} className="glass rounded-2xl p-6">

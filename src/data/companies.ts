@@ -94,8 +94,8 @@ export const companies: Company[] = [
     industry: "Event Infrastructure",
     founded: "2026",
     website: "https://insight-lens-express.vercel.app/",
-    email: "hello@thefirststep.com",
-    phone: "+91 98765 11111",
+    email: "hello@firstsolutions.co",
+    phone: "+91 44 3153 6968",
     ceo: "Ajay",
     team: [
       { name: "Ajay", role: "CEO" },
