@@ -98,7 +98,7 @@ export function SiteFooter() {
           <div className="flex flex-col space-y-2 text-xs text-muted-foreground pt-2">
             <div className="flex items-center gap-2">
               <MapPin className="w-3.5 h-3.5 text-gold/80" />
-              <span>UMSHIV House, Mumbai, India</span>
+              <span>Flat No. 27, 1st Street, Kothari Nagar, Ramapuram, Chennai 600089</span>
             </div>
             <div className="flex items-center gap-2">
               <Mail className="w-3.5 h-3.5 text-gold/80" />

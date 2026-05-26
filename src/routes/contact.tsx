@@ -49,7 +49,7 @@ function ContactPage() {
             className="space-y-6"
           >
             {[
-              { l: "Headquarters", v: "UMSHIV House, Mumbai, India" },
+              { l: "Headquarters", v: "Flat No. 27, 1st Street, Kothari Nagar, Annai Sathya Nagar Main Road, Ramapuram, Chennai 600089" },
               { l: "Email", v: "hello@umshiv.com" },
               { l: "Phone", v: "+91 44 3153 6968" },
               { l: "Hours", v: "Mon–Sat · 9:30 to 18:30 IST" },
